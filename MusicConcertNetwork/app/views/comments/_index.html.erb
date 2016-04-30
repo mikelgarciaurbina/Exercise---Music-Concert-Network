@@ -1,0 +1,13 @@
+<div class="media-body">
+    <div class="well">
+        <h4 class="media-heading reviews"><%= record.email %> </h4>
+        <ul class="media-date text-uppercase reviews list-inline">
+            <li class="dd"><%= record.created_at.strftime("%d") %></li>
+            <li class="mm"><%= record.created_at.strftime("%m") %></li>
+            <li class="aaaa"><%= record.created_at.strftime("%Y") %></li>
+        </ul>
+        <p class="media-comment">
+            <%= record.comment %>
+        </p>
+  </div>              
+</div>

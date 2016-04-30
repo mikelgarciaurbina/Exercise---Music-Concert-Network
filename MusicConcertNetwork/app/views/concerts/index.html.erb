@@ -1,0 +1,31 @@
+<aside class="col-md-3 col-md-offset-1">
+	<div>
+		<h3><%= link_to "Create new concert", new_concert_path %></h3>
+		<h3><%= link_to "Most commented concerts", comments_most_path %></h3>
+	</div>
+	<div>
+		<h4>Later this month:</h3>
+	</div>
+	<div class="list-group">
+		<% lastMonth(@concerts).each do |concert| %>
+			<a href="/concerts/<%= concert.id %>" class="list-group-item">
+				<h4 class="list-group-item-heading"><%= concert.artist %></h4>
+				<p class="list-group-item-text"><%= concert.venue %> - <%= concert.date.strftime("%F") %> - <%= concert.price %>€</p>
+			</a>
+		<% end %>
+	</div>
+</aside>
+<div class="col-md-6 col-md-offset-1">
+	<h2>Concerts today</h2>
+	<% today(@concerts).each do |concert| %>
+		<div class="card">
+			<h3 class="card-header"><%= concert.artist %></h3>
+			<div class="card-block">
+				<h4 class="card-title"><%= concert.venue %> (<%= concert.city %>)</h4>
+				<p class="card-text"><%= concert.date %> - <%= concert.price %>€</p>
+				<p class="card-text"><%= concert.description %></p>
+				<%= link_to "Show comments", concert_path(concert), class: "btn btn-primary" %>
+			</div>
+		</div>
+	<% end %>
+</div>

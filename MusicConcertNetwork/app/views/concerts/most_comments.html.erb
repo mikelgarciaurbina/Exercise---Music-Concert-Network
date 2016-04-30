@@ -1,0 +1,14 @@
+<div class="col-md-11 col-md-offset-1">
+	<h2>Concerts today</h2>
+	<% @concerts.each do |concert| %>
+		<div class="card">
+			<h3 class="card-header"><%= concert.artist %></h3>
+			<div class="card-block">
+				<h4 class="card-title"><%= concert.venue %> (<%= concert.city %>)</h4>
+				<p class="card-text"><%= concert.date %> - <%= concert.price %>€</p>
+				<p class="card-text"><%= concert.description %></p>
+				<%= link_to "Show comments", concert_path(concert), class: "btn btn-primary" %>
+			</div>
+		</div>
+	<% end %>
+</div>

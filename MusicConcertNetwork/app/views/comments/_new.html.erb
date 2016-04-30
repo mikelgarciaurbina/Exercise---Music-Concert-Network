@@ -1,0 +1,22 @@
+<div class="panel-footer">
+    <div class="input-placeholder">Add a comment...</div>
+</div>
+<div class="panel-google-plus-comment">
+    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+    <div class="panel-google-plus-textarea">
+        <%= form_for [@concert, @comment_new] do |f| %>
+            <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :comment %>
+                <%= f.text_area :comment, rows: "4", class: 'form-control' %>
+            </div>
+
+            <%= f.button "Post comment", class: 'btn btn-success' %>
+            <button id="cancel" type="reset" class="btn btn-default">Cancel</button>
+        <% end %>
+    </div>
+    <div class="clearfix"></div>
+</div>
